@@ -1,0 +1,29 @@
+body{
+    background-image: url(../img/ashe.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+}
+#resultat li{
+    font-size: 35px;
+}
+button{
+    width: 100px;
+    height: 50px;
+    background-color: rgb(233, 82, 82);
+    border: 2px solid white;
+    font-weight: bolder;
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+button:hover{
+    background: rgb(214, 40, 40);;
+}
+.xdebug-var-dump{
+    background: black;
+    border-radius: 4px;
+    padding: 10px;
+}
+h1{
+    color: black;
+}

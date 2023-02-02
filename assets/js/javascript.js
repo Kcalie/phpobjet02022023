@@ -1,13 +1,14 @@
 $(document).ready(function(){
     $('#tirage').click(function(){
         compteRebours();
-        let audio = document.createElement("audio");
-        audio.src="assets/son/son.mp3";
-        audio.play();
+
     });
 });
 function compteRebours()
 {
+    let audio = document.createElement("audio");
+    audio.src="assets/son/son.mp3";
+    audio.play();
     let dom_element = $('#comptearebours');
     let secondes = 10;
     dom_element.html(secondes);
@@ -49,6 +50,7 @@ function compteRebours()
                         }
                     }
                     $('#resultat').show(10000);
+                    $('#comptearebours').empty().hide();
                     audio.pause();
                 }
             });
