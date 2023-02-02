@@ -60,12 +60,14 @@ class Random
                 // on tire une clé au sort 
                 $rand = array_rand($this->groupe);
                 // on select la personne en fonction de la clé
-                $groupe2[$i][] = $this->groupe[$rand];
+                //$groupe2[$i][] = $this->groupe[$rand];
+                $groupe1[] = $this->groupe[$rand];
                 // on sort l'element du tableau 
                 unset($this->groupe[$rand]);
             }
         }
-        if(!empty($groupe1))
+        // si on a un groupe impair
+        /*if(!empty($groupe1))
         {
             $tableau = array_merge_recursive($groupe1,$groupe2);
         }
@@ -73,7 +75,8 @@ class Random
         {
             $tableau = $groupe2;
         }
-        return $tableau;
+        return $tableau;*/
+        return $groupe1;
     }
 }
 ?>

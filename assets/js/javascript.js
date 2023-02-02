@@ -18,14 +18,14 @@ function compteRebours()
         if(secondes<0){
             // traitement de la requete ajax
             clearInterval(interval);
-            audio.stop();
+            $('#resultat').empty().hide();
             // POUR QUE LE SON SE JOUE PARES LE COMPTE A REBOURS // let audio = document.createElement("audio"); //audio.src="assets/son/son.mp3"; // audio.play();
             // requete ajax pour le tirage au sors
             $.ajax({
                 url: 'ajax.php',
                 method:'GET',
                 success: function(response){
-                    let tirage = jQuery.ParseJSON(response);
+                    let tirage = jQuery.parseJSON(response);
                     // on parcours les tableau tirage
                     let num_groupe = 1;
                     for(let i=0;i<tirage.length;i++)
@@ -33,7 +33,7 @@ function compteRebours()
                         // si le nbre de personne est impair
                         if(tirage.length%2 == 1)
                         {
-                            if(i == 0 || i == 3 || i == 7 || i == 9 || i == 11 || i == 13){
+                            if(i == 0 || i == 3 || i == 5 || i == 7 || i == 9 || i == 11 || i == 13){
                                 $('#resultat').append('<h3>Groupe '+num_groupe+'</h3>');
                                 num_groupe++;
                             }
@@ -48,8 +48,11 @@ function compteRebours()
                             $('#resultat').append('<li>'+tirage[i]+'</li>');
                         }
                     }
+                    $('#resultat').show(10000);
+                    audio.pause();
                 }
             });
+
         }
     },1000);
 }
