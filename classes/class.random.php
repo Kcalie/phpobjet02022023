@@ -25,13 +25,15 @@ class Random
                 $groupe1[] = $this->groupe[$rand];
                 // on sort l'element selectionné du tableau
                 unset($this->groupe[$rand]);
+                echo 'groupe de 3:';
+                var_dump($this->groupe);
             }
         }
         // Si le nb de personne est pair
         // on met a jour le nb de personnes
         $nb_personne_new = count($this->groupe); 
         // on fait une boucle $nb_personne-new/2
-        for($i=0;$i<=($nb_personne_new)/2;$i++)
+        for($i=0;$i<=($nb_personne_new/2)-1;$i++)
         {
             // on initialize le tableau des groupes
             $groupe2 [$i] = array();
@@ -40,12 +42,25 @@ class Random
             {
                 // on tire une clé au sort 
                 $rand = rand(0,$nb_personne_new-1);
-                // on selct la personne en fonction de la clé
+                echo $rand.'<br />';
+                echo 'nb personne:'.$nb_personne_new.'<br />';
+                // on select la personne en fonction de la clé
                 $groupe2[$i][] = $this->groupe[$rand];
                 // on sort l'element du tableau 
                 unset($this->groupe[$rand]);
+                // on met a jour $nb_personne_new
+                $nb_personne_new = count($this->groupe);
             }
         }
+        if(!empty($groupe1))
+        {
+            $tableau = array_merge_recursive($groupe1,$groupe2);
+        }
+        else
+        {
+            $tableau = $groupe2;
+        }
+        return $tableau;
     }
 }
 ?>
