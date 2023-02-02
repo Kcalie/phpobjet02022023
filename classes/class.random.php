@@ -7,6 +7,21 @@ class Random
     {
         $this->groupe = ['Joseph', 'Kevin', 'Philemon', 'Fransisco', 'Maxime', 'Geoffrey', 'Angeline', 'Emilie', 'Amelie', 'Jessica', 'Gerald'];
     }
+
+    // Setter pour ajouter des personnes
+    public function setPersonne($nom)
+    {
+        $this->groupe[] = $nom;
+    }
+    // Unsetter pour supprimer des personnes
+    public function unsetPersonne($nom)
+    {
+        $key = array_search($nom,$this->groupe);
+        unset($this->groupe[$key]);
+        $this->groupe = array_merge($this->groupe);
+        //var_dump($this->groupe);
+    }
+
     // on va créer les groupes de travail 
     public function setGroupe()
     {
@@ -17,16 +32,18 @@ class Random
         {
             // on selectionne 3 personnes dans le groupe
             $groupe1 = array();
-            for($i=0;$i<=2;$i++)
+            // on initialize notre tableau a 0 (reservé aux experts)
+            $groupe1[] = $this->groupe[0];
+            unset($this->groupe[0]);
+            for($i=0;$i<2;$i++)
             {
                 // on tire une clé au sort 
-                $rand = rand(0,$nb_personne-1);
+                $rand = array_rand($this->groupe);
                 // on va chercher l'elment du tableau
                 $groupe1[] = $this->groupe[$rand];
                 // on sort l'element selectionné du tableau
                 unset($this->groupe[$rand]);
-                echo 'groupe de 3:';
-                var_dump($this->groupe);
+                //var_dump($this->groupe);
             }
         }
         // Si le nb de personne est pair
@@ -41,15 +58,11 @@ class Random
             for($i2=0;$i2<=1;$i2++)
             {
                 // on tire une clé au sort 
-                $rand = rand(0,$nb_personne_new-1);
-                echo $rand.'<br />';
-                echo 'nb personne:'.$nb_personne_new.'<br />';
+                $rand = array_rand($this->groupe);
                 // on select la personne en fonction de la clé
                 $groupe2[$i][] = $this->groupe[$rand];
                 // on sort l'element du tableau 
                 unset($this->groupe[$rand]);
-                // on met a jour $nb_personne_new
-                $nb_personne_new = count($this->groupe);
             }
         }
         if(!empty($groupe1))
