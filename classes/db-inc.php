@@ -2,7 +2,7 @@
 $DB_HOST = 'localhost';
 $DB_USER ='root';
 $DB_PASSWORD = '';
-$DB_NAME = 'ticket';
+$DB_NAME = 'random';
 // cree la fonction pour se connecter a la base de données
 function pdo_connect()
 {

@@ -86,7 +86,7 @@ class Random
         return $groupe1;
     }
     // fonction qui tire au sors pour la correction 
-    public function getCorrection($date)
+    public static function getCorrection($date)
     {
         global $db;
         // on se fait une 1ere requete qui va selectionner le numero du groupe
@@ -99,7 +99,7 @@ class Random
             // on selectionne les personnes du groupe 
             $req = $db->prepare('SELECT * FROM `random` WHERE random_date = :date AND random_groupe = :groupe');
             $req->bindParam(':date',$date,PDO::PARAM_STR);
-            $req->bindParam(':date',$numero_groupe->random_groupe,PDO::PARAM_STR);
+            $req->bindParam(':groupe',$numero_groupe->random_groupe,PDO::PARAM_INT);
             $req->execute();
             if($req->rowCount() >=1)
             {
