@@ -1,4 +1,5 @@
 <?php
+require('db-inc.php');
 class Random
 {
     public $groupe;
@@ -25,6 +26,8 @@ class Random
     // on va créer les groupes de travail 
     public function setGroupe()
     {
+        // on insere notre objet PDO
+        global $db;
         // recup le nbre de personnes dans le groupe
         $nb_personne = count($this->groupe);
         // si le nbre de personnes est impair
