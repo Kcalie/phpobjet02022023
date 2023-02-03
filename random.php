@@ -1,10 +1,4 @@
-<?php
-require('classes/class.random.php');
-$tirage = new Random();
-//$tirage->setPersonne('Salim');
-//$tirage->unsetPersonne('Joseph');
-var_dump($tirage->setGroupe());
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,6 +17,7 @@ var_dump($tirage->setGroupe());
 
     </div>
     <button type="button" name="tirage" id="tirage">GO !!!!!</button>
+    <button type="button" name="correction" id="correction">Elu pour la correction</button>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
     <script type="text/javascript" src="assets/js/javascript.js"></script>
 </body>

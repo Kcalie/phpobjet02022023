@@ -75,7 +75,7 @@ class Random
                 // on select la personne en fonction de la clé
                 $groupe1[] = $this->groupe[$rand];
                 $req3 = $db->prepare('INSERT INTO `random` SET random_groupe = :groupe, random_prenom = :prenom, random_date = CURDATE()');
-                $req3->bindValue(':groupe',$this->$num_groupe,PDO::PARAM_STR);
+                $req3->bindValue(':groupe',$num_groupe,PDO::PARAM_STR);
                 $req3->bindValue(':prenom',$this->groupe[$rand],PDO::PARAM_STR);
                 $req3->execute();
                 // on sort l'element du tableau 

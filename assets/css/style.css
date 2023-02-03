@@ -2,7 +2,7 @@ body{
     background-image: url(../img/ashe.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    color: white;
+    color: red;
 }
 #resultat li{
     font-size: 35px;
@@ -25,5 +25,6 @@ button:hover{
     padding: 10px;
 }
 h1{
-    color: black;
+    color: rgb(225, 248, 19);
+    text-shadow: #fff 5px 0px 20px;
 }
